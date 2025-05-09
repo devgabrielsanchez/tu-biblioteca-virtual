@@ -2,7 +2,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { Button } from "@/components/ui/button";
-import { BookOpen, LogIn, Search, User } from "lucide-react";
+import { BookOpen, LogIn, User } from "lucide-react";
 import { useState } from "react";
 
 const Navbar = () => {
@@ -16,7 +16,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-sm border-b">
+    <nav className="bg-white dark:bg-card shadow-sm border-b border-border dark:border-border">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
@@ -40,7 +40,7 @@ const Navbar = () => {
             {isAuthenticated ? (
               <div className="flex items-center space-x-4">
                 <span className="text-sm text-muted-foreground">Hola, {user?.name}</span>
-                <Button variant="outline" onClick={handleLogout}>
+                <Button variant="outline" onClick={handleLogout} className="border-metallic">
                   Cerrar sesión
                 </Button>
               </div>
@@ -52,7 +52,7 @@ const Navbar = () => {
                     Iniciar sesión
                   </Link>
                 </Button>
-                <Button asChild>
+                <Button asChild className="bg-gradient-to-br from-primary to-primary/90">
                   <Link to="/register">
                     <User className="mr-2 h-4 w-4" />
                     Registrarse
@@ -84,21 +84,21 @@ const Navbar = () => {
               </Link>
             )}
             {isAuthenticated ? (
-              <div className="space-y-2 pt-2 border-t">
+              <div className="space-y-2 pt-2 border-t border-border">
                 <span className="block text-sm text-muted-foreground">Hola, {user?.name}</span>
-                <Button variant="outline" size="sm" onClick={() => { handleLogout(); setMobileMenuOpen(false); }}>
+                <Button variant="outline" size="sm" onClick={() => { handleLogout(); setMobileMenuOpen(false); }} className="w-full justify-start border-metallic">
                   Cerrar sesión
                 </Button>
               </div>
             ) : (
-              <div className="space-y-2 pt-2 border-t">
+              <div className="space-y-2 pt-2 border-t border-border">
                 <Button variant="ghost" size="sm" className="w-full justify-start" asChild>
                   <Link to="/login" onClick={() => setMobileMenuOpen(false)}>
                     <LogIn className="mr-2 h-4 w-4" />
                     Iniciar sesión
                   </Link>
                 </Button>
-                <Button size="sm" className="w-full justify-start" asChild>
+                <Button size="sm" className="w-full justify-start bg-gradient-to-br from-primary to-primary/90" asChild>
                   <Link to="/register" onClick={() => setMobileMenuOpen(false)}>
                     <User className="mr-2 h-4 w-4" />
                     Registrarse
