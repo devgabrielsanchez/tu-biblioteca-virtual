@@ -25,13 +25,13 @@ const Index = () => {
             </p>
             {!isAuthenticated ? (
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Button size="lg" asChild className="bg-gradient-to-br from-primary to-primary/90">
+                <Button size="lg" asChild>
                   <Link to="/register">
                     <User className="mr-2 h-5 w-5" />
                     Crear una cuenta
                   </Link>
                 </Button>
-                <Button variant="outline" size="lg" asChild className="border-metallic">
+                <Button variant="outline" size="lg" asChild>
                   <Link to="/login">
                     <LogIn className="mr-2 h-5 w-5" />
                     Iniciar sesión
@@ -39,7 +39,7 @@ const Index = () => {
                 </Button>
               </div>
             ) : (
-              <Button size="lg" asChild className="bg-gradient-to-br from-primary to-primary/90">
+              <Button size="lg" asChild>
                 <Link to="/catalog">
                   <Book className="mr-2 h-5 w-5" />
                   Explorar catálogo
@@ -52,12 +52,12 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-white dark:bg-background">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold font-playfair text-center mb-12">¿Por qué Biblioteca Virtual?</h2>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="flex flex-col items-center text-center p-6 metallic-card rounded-lg">
+            <div className="flex flex-col items-center text-center p-6 bg-background rounded-lg shadow-sm">
               <div className="bg-primary/10 p-4 rounded-full mb-4">
                 <BookOpen className="h-8 w-8 text-primary" />
               </div>
@@ -65,7 +65,7 @@ const Index = () => {
               <p className="text-muted-foreground">Miles de libros de todos los géneros disponibles para ti en cualquier momento.</p>
             </div>
             
-            <div className="flex flex-col items-center text-center p-6 metallic-card rounded-lg">
+            <div className="flex flex-col items-center text-center p-6 bg-background rounded-lg shadow-sm">
               <div className="bg-primary/10 p-4 rounded-full mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
                   <path d="M2 22v-5h7V7H2V2h20v5h-7v10h7v5H2z"></path>
@@ -75,7 +75,7 @@ const Index = () => {
               <p className="text-muted-foreground">Ajusta el tamaño de texto, brillo y más para una experiencia cómoda de lectura.</p>
             </div>
             
-            <div className="flex flex-col items-center text-center p-6 metallic-card rounded-lg">
+            <div className="flex flex-col items-center text-center p-6 bg-background rounded-lg shadow-sm">
               <div className="bg-primary/10 p-4 rounded-full mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
                   <path d="M12 5v14"></path>
@@ -96,7 +96,7 @@ const Index = () => {
           
           <div className="grid md:grid-cols-3 gap-8">
             {featuredBooks.map((book) => (
-              <div key={book.id} className="book-card rounded-lg overflow-hidden shadow-md">
+              <div key={book.id} className="book-card rounded-lg overflow-hidden shadow-md bg-white">
                 <div className="h-[300px] overflow-hidden">
                   <img 
                     src={book.cover} 
@@ -122,7 +122,7 @@ const Index = () => {
           </div>
           
           <div className="mt-12 text-center">
-            <Button size="lg" asChild className="bg-gradient-to-br from-primary to-primary/90">
+            <Button size="lg" asChild>
               <Link to={isAuthenticated ? "/catalog" : "/register"}>
                 Ver más libros
               </Link>
@@ -139,11 +139,11 @@ const Index = () => {
             <p className="text-lg mb-8">Únete a miles de lectores y disfruta de una biblioteca completa en tus manos.</p>
             
             {!isAuthenticated ? (
-              <Button size="lg" asChild className="bg-gradient-to-br from-primary to-primary/90">
+              <Button size="lg" asChild>
                 <Link to="/register">Crear cuenta gratuita</Link>
               </Button>
             ) : (
-              <Button size="lg" asChild className="bg-gradient-to-br from-primary to-primary/90">
+              <Button size="lg" asChild>
                 <Link to="/catalog">Explorar catálogo</Link>
               </Button>
             )}

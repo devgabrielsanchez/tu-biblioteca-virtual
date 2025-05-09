@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -108,3 +108,4 @@
     @apply bg-gradient-to-br from-card to-metallic-light/30 dark:from-card dark:to-metallic-dark/30 backdrop-blur-sm border border-metallic-light/30 dark:border-metallic-dark/30;
   }
 }
+
