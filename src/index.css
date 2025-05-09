@@ -7,35 +7,65 @@
 
 @layer base {
   :root {
-    --background: 44 36% 98%;
-    --foreground: 30 10% 15%;
+    --background: 220 20% 97%;
+    --foreground: 220 10% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 30 10% 15%;
+    --card-foreground: 220 10% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 30 10% 15%;
+    --popover-foreground: 220 10% 15%;
 
-    --primary: 25 95% 53%;
-    --primary-foreground: 44 36% 98%;
+    --primary: 220 54% 45%;
+    --primary-foreground: 220 20% 97%;
 
-    --secondary: 210 64% 40%;
-    --secondary-foreground: 44 36% 98%;
+    --secondary: 220 20% 40%;
+    --secondary-foreground: 220 20% 97%;
 
-    --muted: 24 5% 90%;
-    --muted-foreground: 25 5% 45%;
+    --muted: 220 10% 90%;
+    --muted-foreground: 220 10% 45%;
 
-    --accent: 210 64% 94%;
-    --accent-foreground: 210 64% 40%;
+    --accent: 220 30% 94%;
+    --accent-foreground: 220 54% 45%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 30 10% 85%;
-    --input: 30 10% 85%;
-    --ring: 25 95% 53%;
+    --border: 220 10% 85%;
+    --input: 220 10% 85%;
+    --ring: 220 54% 45%;
 
     --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 220 25% 10%;
+    --foreground: 220 10% 90%;
+
+    --card: 220 25% 12%;
+    --card-foreground: 220 10% 90%;
+
+    --popover: 220 25% 12%;
+    --popover-foreground: 220 10% 90%;
+
+    --primary: 220 54% 60%;
+    --primary-foreground: 220 10% 10%;
+
+    --secondary: 220 30% 30%;
+    --secondary-foreground: 220 10% 90%;
+
+    --muted: 220 20% 20%;
+    --muted-foreground: 220 10% 70%;
+
+    --accent: 220 15% 25%;
+    --accent-foreground: 220 54% 60%;
+
+    --destructive: 0 74% 50%;
+    --destructive-foreground: 220 10% 90%;
+
+    --border: 220 15% 25%;
+    --input: 220 15% 25%;
+    --ring: 220 54% 60%;
   }
 
   body {
@@ -50,18 +80,32 @@
 
 @layer components {
   .book-card {
-    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1 bg-gradient-to-br from-card to-muted dark:from-card dark:to-accent border border-border;
   }
   
   .book-page {
-    @apply bg-white shadow-md p-4 mx-auto my-2 max-w-full;
+    @apply bg-white dark:bg-card shadow-md p-4 mx-auto my-2 max-w-full;
     position: relative;
     box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
     border-radius: 2px;
   }
   
   .reader-container {
-    @apply max-w-3xl mx-auto p-4 bg-white rounded-lg shadow-lg;
+    @apply max-w-3xl mx-auto p-4 bg-white dark:bg-card dark:text-foreground rounded-lg shadow-lg;
     min-height: 80vh;
   }
+
+  .metallic-surface {
+    @apply bg-gradient-to-br from-white/80 to-metallic-light dark:from-metallic-dark dark:to-metallic;
+    background-blend-mode: overlay;
+  }
+
+  .metallic-button {
+    @apply bg-gradient-to-b from-metallic-light to-metallic dark:from-metallic dark:to-metallic-dark border border-metallic-light/50 dark:border-metallic-dark/50 text-foreground shadow-md hover:shadow-lg transition-all;
+  }
+
+  .metallic-card {
+    @apply bg-gradient-to-br from-card to-metallic-light/30 dark:from-card dark:to-metallic-dark/30 backdrop-blur-sm border border-metallic-light/30 dark:border-metallic-dark/30;
+  }
 }
+
